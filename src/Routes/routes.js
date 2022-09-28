@@ -15,6 +15,17 @@ class Routes {
         console.log(err);
       }
     });
+
+    app.get("/EJEMPLO", async (req, res) => {
+        try {
+console.log("EJEMPLO DE NUEVA RUTA")
+        } catch (err) {
+          console.log("ERROR");
+          console.log(err);
+        }
+      });
+
+
     return app;
   }
 }

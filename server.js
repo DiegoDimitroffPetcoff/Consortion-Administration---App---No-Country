@@ -2,7 +2,7 @@
 const express = require('express')
 const app = express()
 
-// ---------------------CONFIG GLOBALES-----------------------//
+// ---------------------CONFIG GLOBALES cambios-----------------------//
 const configs = require("./src/config.js/globals");
 
 // --------------------------FACTORY--------------------------//
