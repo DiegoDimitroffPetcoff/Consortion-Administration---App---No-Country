@@ -10,6 +10,7 @@ class Routes {
       try {
         let objetoEJEMPLO = await Schema.find({});
         console.log(objetoEJEMPLO);
+        res.send(objetoEJEMPLO)
       } catch (err) {
         console.log("ERROR");
         console.log(err);
@@ -19,6 +20,7 @@ class Routes {
     app.get("/EJEMPLO", async (req, res) => {
         try {
 console.log("EJEMPLO DE NUEVA RUTA")
+res.send("FUnciona")
         } catch (err) {
           console.log("ERROR");
           console.log(err);
