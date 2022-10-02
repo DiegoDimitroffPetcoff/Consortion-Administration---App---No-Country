@@ -15,12 +15,23 @@ const DBS = Factory.getInstance(DBSelected);
 DBS.connection(DBSelected);
 
 // --------------------------RUTAS----------------------------//
-const routes = require('./src/Routes/routes')
+const routes = require('./src/Routes/routes.js')
 const Routes = new routes()
 app.use(Routes.start())
+
+import adminRoutes from './src/Routes/adminRoutes'
+app.use('/api/v1/admin', adminRoutes);
 
 // --------------------------PUERTO--------------------------//
 const PORT = configs.PORT
 app.listen(PORT, () => {
   console.log(`Server working on port ${PORT}`)
 })
+// --------------------------ERROR--------------------------//
+import AppError from './src/utils/appError.js'
+
+app.all('*', (req, res, next) => {
+  next(
+    new AppError(`La ruta ${req.originalUrl} no existe en este servidor`, 404)
+  );
+});
