@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const Controller = require('../controllers.js/mongo.js/controller')
+const Controller = require('../controllers.js/mongo/controller')
 
 class Routes {
   constructor() {
