@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const Schema = require("../Models/AMINISTRADOR");
+const Schema = require("../Models/ModeloPrueba");
 
 class Routes {
   constructor() {}
