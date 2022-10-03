@@ -1,32 +1,24 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
-const Schema = require("../Models/AMINISTRADOR");
+
+const Controller = require('../controllers.js/mongo.js/controller')
 
 class Routes {
-  constructor() {}
+  constructor() {
+  this.Controller = new Controller()}
   start() {
     app.get("/", async (req, res) => {
       try {
         let objetoEJEMPLO = await Schema.find({});
         console.log(objetoEJEMPLO);
-        res.send(objetoEJEMPLO)
+        res.send(objetoEJEMPLO);
       } catch (err) {
         console.log("ERROR");
         console.log(err);
       }
     });
 
-    app.get("/EJEMPLO", async (req, res) => {
-        try {
-console.log("EJEMPLO DE NUEVA RUTA")
-res.send("FUnciona")
-        } catch (err) {
-          console.log("ERROR");
-          console.log(err);
-        }
-      });
-
+    app.get("/add_torre/:name", this.Controller.add_torre);
 
     return app;
   }

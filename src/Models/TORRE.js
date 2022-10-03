@@ -4,4 +4,4 @@ const TorreSchema = new mongoose.Schema({
     Name: {type: String, required: true, max: 100},
 });
 
-module.exports= mongoose.model(Torre, TorreSchema)
+module.exports= mongoose.model("Torres", TorreSchema)
