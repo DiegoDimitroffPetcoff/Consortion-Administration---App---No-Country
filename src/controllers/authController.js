@@ -12,7 +12,7 @@ const signToken = (id) => {
 };
 
 const createSendToken = (administrator, statusCode, res) => {
-  const token = signToken(administratorgit._id);
+  const token = signToken(administrator._id);
 
   res.status(statusCode).json({
     status: 'success',
@@ -50,7 +50,7 @@ export const signUp = CatchAsync(async (req, res, next) => {
     apellidos,
     email,
     password,
-    confirmarPassword,
+    confirmarPassword
     
   });
 

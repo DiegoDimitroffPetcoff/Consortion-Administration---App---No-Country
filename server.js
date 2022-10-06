@@ -20,7 +20,7 @@ const Routes = new routes()
 app.use(Routes.start())
 
 import adminRoutes from './src/Routes/adminRoutes'
-app.use('/api/v1/admin', adminRoutes);
+app.use('/api/admin', adminRoutes);
 
 // --------------------------PUERTO--------------------------//
 const PORT = configs.PORT
