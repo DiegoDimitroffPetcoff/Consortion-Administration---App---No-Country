@@ -11,4 +11,4 @@ const ApartamentoSchema = new mongoose.Schema({
 
 });
 
-module.exports= mongoose.model(Apartamento, ApartamentoSchema)
+module.exports= mongoose.model("Apartamento", ApartamentoSchema)

@@ -1,13 +1,14 @@
 const Container= require('../../Containers/mongo/container')
 
-const Schema = require('../../Models/TORRE');
+const Schema = require('../../Models/APARTAMENTO');
 
-class Torres extends Container {
+class Apartamento extends Container {
     constructor(){
         super(Schema);
         this.Schema = Schema
     }
     async create(content){
+        
 
         let model = new this.Schema(content);
         return await model.save();             
@@ -15,4 +16,4 @@ class Torres extends Container {
 
 }
 
-module.exports = Torres
+module.exports = Apartamento

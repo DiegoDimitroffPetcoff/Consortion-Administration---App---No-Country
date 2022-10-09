@@ -19,6 +19,7 @@ class Routes {
     });
 
     app.get("/add_torre/:name", this.Controller.add_torre);
+    app.post("/add_apartment", this.Controller.add_apartment);
 
     return app;
   }
