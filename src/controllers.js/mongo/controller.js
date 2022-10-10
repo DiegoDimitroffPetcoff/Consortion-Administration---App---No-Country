@@ -15,7 +15,9 @@ class Controller {
 
   async add_torre(req, res) {
     try {
-      let object = { Name: req.params.name };
+      let object = { Name: req.params.name ,
+        id: req.body.id };
+        console.log(object);
       let newTorre = await DaoTorre.create(object);
 
       console.log(`Se ah agregado la torre: ${newTorre}`);
@@ -30,10 +32,10 @@ class Controller {
   
 
   async add_apartment(req, res) {
-    console.log(req.body;
+
     try {
       let object = { 
-        Propietario: req.body.propietario,
+        Propietario: req.body.Propietario,
         Torre:  req.body.Torre,
         Aviso_cobro: req.body.Aviso_cobro };
       let newTorre = await DaoDpto.create(object);
