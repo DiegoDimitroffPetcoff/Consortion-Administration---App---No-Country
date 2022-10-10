@@ -15,9 +15,8 @@ class Controller {
 
   async add_torre(req, res) {
     try {
-      let object = { Name: req.params.name ,
-        id: req.body.id };
-        console.log(object);
+      let object = { Name: req.params.name };
+ 
       let newTorre = await DaoTorre.create(object);
 
       console.log(`Se ah agregado la torre: ${newTorre}`);
