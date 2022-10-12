@@ -4,7 +4,6 @@
   "description": "Application to manage a consortium",
   "main": "server.js",
   "scripts": {
-
     "start": "node server.js"
   },
   "keywords": [
@@ -18,8 +17,10 @@
     "express": "^4.18.1",
     "mongoose": "^6.6.1"
   },
-  "engines":{
+  "engines": {
     "node": "14.17.0"
-  
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

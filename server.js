@@ -24,3 +24,14 @@ const PORT = configs.PORT
 app.listen(PORT, () => {
   console.log(`Server working on port ${PORT}`)
 })
+
+//Middlaware
+app.use(express.json());
+app.use('/api', adminRoutes)
+
+//ROUTES
+import adminRoutes from './routes/adminRoutes.js'
+
+app.get('/', (req,res) => {
+    res.send('Welcome to my API')
+})
