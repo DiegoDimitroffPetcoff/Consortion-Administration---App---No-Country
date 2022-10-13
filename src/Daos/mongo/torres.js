@@ -15,11 +15,7 @@ class Torres extends Container {
   }
 
   async read() {
-    try {
-      return await this.Schema.find({}, { _id: 0 });
-    } catch (error) {
-      console.log(error);
-    }
+    return await this.Schema.find({});
   }
 
   async getById(x) {
@@ -47,15 +43,28 @@ class Torres extends Container {
 
   async create(content) {
     let all = await this.read({});
-    let id = all.pop().id;
-    id++;
-
-
-
-    let object = { Name: content.Name, id: id };
-    console.log(object);
-    let model = new this.Schema(object);
-    return await model.save();
+    if (all[0] == undefined) {
+      console.log("NULL");
+      let id = 1;
+      let object = {
+        Name: content.Name,   
+        id: id,
+      };
+      console.log(object);
+      let model = new this.Schema(object);
+      return await model.save();
+    } else {
+      console.log("ELSE");
+      let id = all.pop().id;
+      id++;
+      let object = {
+        Name: content.Name,   
+        id: id,
+      };
+      console.log(object);
+      let model = new this.Schema(object);
+      return await model.save();
+    }
   }
 }
 
