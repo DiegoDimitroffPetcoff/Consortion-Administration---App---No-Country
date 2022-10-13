@@ -50,6 +50,8 @@ class Torres extends Container {
     let id = all.pop().id;
     id++;
 
+
+
     let object = { Name: content.Name, id: id };
     console.log(object);
     let model = new this.Schema(object);

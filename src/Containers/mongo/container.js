@@ -7,8 +7,9 @@ class Container {
     let model = new this.Schema(content);
     return await model.save();
   }
-  read() {
-    let empty = "empty";
+  async read() {
+    return await this.Schema.find({});
+
   }
   update() {
     let empty = "empty";
