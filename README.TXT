@@ -23,50 +23,49 @@ Boton de mensajes al Administrador
 ACTUALIZACION HECHA 13-10-2022
 
 Logica de la funcionalidad: 
-Un Root en donde el administrador encuentre un boton para 
-	-> Agregar torres: 
-			{Name: "'TORRE_EJEMPLO2",
- 			id: 14,
- 			_id: new ObjectId("6348750639302e4d96a922f2"),
- 			__v: 0
-			}
-	-
-		-> Agregar Apartamentos:
-			{_id: new ObjectId("634869970a8478628a3099e5"),
-  			Propietario: 'Diego Dimitroff',
-  			Torre: '1B',
-  			Aviso_cobro: true,
-  			id: 1,
-  			__v: 0
-			}
+
+
 	
 ROUTES:
 
 /add_torre/:name
 
 Si agregan la ruta y el parametro con el nombre de la torre que quieran crear, la misma se creara y se guardara en la base de datos con el siguiente formato:
-	EJEMPLO: /add_torre/TORRE_EJEMPLO2
+	EJEMPLO: /add_torre/Torre2
 
-			{Name: "'TORRE_EJEMPLO2",
- 			id: 14,
- 			_id: new ObjectId("6348750639302e4d96a922f2"),
- 			__v: 0
-			}
-La idea es agregar aqui agregar una clave que tenga como valor todos los APARTAMENTOS que se agreguen con la siguiente ruta
+
+LO QUE SE GUARDA EN LA DBS:
+{
+    "Name": "Torre2",
+    "id": 2,
+    "apartamentos": [],
+    "_id": "6349e0372bb2a88ff6d02a98",
+    "__v": 0
+}
+
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 /add_apartment
 Si agregan la ruta, y en el BODY completan la info del apartamento, la misma se creara y se guardara en la base de datos con el siguiente formato:
-			{_id: new ObjectId("634869970a8478628a3099e5"),
-  			Propietario: 'Diego Dimitroff',
-  			Torre: '1B',
-  			Aviso_cobro: true,
-  			id: 1,
-  			__v: 0
-			}
+{
+"Propietario": "Diego",
+"Torre": "Torre2",
+"Aviso_cobro": false,
+}
 
-La idea es agregar aqui un ADD para vincular el apartamento creado con alguna de las TORRES creadas. 
+LO QUE SE GUARDA EN LA DBS:
+{
+    "Propietario": "Diego",
+    "Torre": "Torre2",
+    "Aviso_cobro": false,
+    "id": 2,
+    "_id": "6349e1732bb2a88ff6d02aa4",
+    "__v": 0
+}
+
+
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 Se que es un dato sensible pero lo adjunto igual por las dudas. 
