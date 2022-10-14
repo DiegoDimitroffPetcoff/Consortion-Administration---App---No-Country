@@ -28,16 +28,33 @@ class Torres extends Container {
     return object;
   }
 
+  async getByName(x) {
+    try {
+      
+      let usuario = await this.Schema.findOne(
+        { Name: x },
+        { _id: 0, Name: 1, id: 1 , apartamentos: 1}
+      );
+ 
+      return usuario;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+    
+  }
+
   async Delete(element) {
     return await this.Schema.deleteOne({ id: element.id });
   }
 
   async Update(object, id) {
+
     return await this.Schema.updateOne(
       {
         id: id,
       },
-      { $set: { title: object.title, price: object.price } }
+      { $set: { apartamentos: object.apartamentos } }
     );
   }
 
@@ -47,8 +64,9 @@ class Torres extends Container {
       console.log("NULL");
       let id = 1;
       let object = {
-        Name: content.Name,   
+        Name: content.Name,
         id: id,
+        apartamentos: []
       };
       console.log(object);
       let model = new this.Schema(object);
@@ -58,8 +76,9 @@ class Torres extends Container {
       let id = all.pop().id;
       id++;
       let object = {
-        Name: content.Name,   
+        Name: content.Name,
         id: id,
+        apartamentos: []
       };
       console.log(object);
       let model = new this.Schema(object);

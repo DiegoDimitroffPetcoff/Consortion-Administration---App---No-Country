@@ -19,9 +19,7 @@ class Controller {
  
       let newTorre = await DaoTorre.create(object);
 
-      console.log(`Se ah agregado la torre: ${newTorre}`);
-      let message = `Se ah agregado la torre: ${newTorre}`;
-      return res.json(message);
+      return res.json(newTorre);
     } catch (err) {
       console.log("ERROR");
       console.log(err);
@@ -39,9 +37,7 @@ class Controller {
         Aviso_cobro: req.body.Aviso_cobro };
       let newTorre = await DaoDpto.create(object);
 
-      console.log(`Se ah agregado el apartamenteo: ${newTorre}`);
-      let message = `Se ah agregado el apartamenteo: ${newTorre}`;
-      return res.json(message);
+      return res.json(newTorre);
     } catch (err) {
       console.log("ERROR");
       console.log(err);
