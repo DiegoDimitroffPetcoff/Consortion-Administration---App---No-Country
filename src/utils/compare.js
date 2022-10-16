@@ -1,12 +1,13 @@
-import bcrypt from 'bcryptjs';
+const bcrypt = require('bcryptjs');
 
-export const validatorPassword = async (password, adminPassword) =>{
+const validatorPassword = async (password, adminPassword) =>{
     return await bcrypt.compare(password, adminPassword);
 };
 
-export const comparePass = (a, b) => {
+const comparePass = (a, b) => {
     if( a === b){
         return true;
     }
     return false;
 }
+

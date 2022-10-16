@@ -1,7 +1,7 @@
-import { check } from 'express-validator';
-import { validateResult } from '../utils/handleValidators.js';
+const { check } = require('express-validator');
+const { validateResult } = require('../utils/handleValidator')
 
-export const validatorRegisterAdmin = [
+const validatorRegisterAdmin = [
   check('nombre').notEmpty().isString().isLength({ min: 3 }),
   check('apellidos').notEmpty().isString(),
   check('password').notEmpty().isLength({ min: 6 }),
@@ -12,7 +12,7 @@ export const validatorRegisterAdmin = [
   },
 ];
 
-export const validateUpdateAdmin = [
+const validateUpdateAdmin = [
   check('nombre').isString().isLength({ min: 3 }),
   check('apellidos').isString(),
   check('password').isLength({ min: 6 }),
@@ -23,10 +23,12 @@ export const validateUpdateAdmin = [
   },
 ];
 
-export const validatorLoginAdmin = [
+const validatorLoginAdmin = [
   check('password').exists().notEmpty().isLength({ min: 6 }),
   check('email').exists().notEmpty().isEmail(),
   (req, res, next) => {
     return validateResult(req, res, next);
   },
 ];
+
+module.exports = validateUpdateAdmin, validatorRegisterAdmin, validatorLoginAdmin

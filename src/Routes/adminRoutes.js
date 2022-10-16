@@ -1,8 +1,8 @@
-import express from 'express';
+const express = require('express');
 
-import * as AdminRoutes from '../controllers/adminController.js'
-import * as AuthRoute from '../controllers/authController.js'
-import * as AdminValidator from '../validators/authValidator.js'
+const AdminRoutes = require ('../controllers/adminController.js');
+const AuthRoute = require('../controllers/authController.js');
+const AdminValidator = require('../validator/authValidator.js');
 
 const router = express.Router();
 
@@ -14,3 +14,5 @@ router.get('/:id', AdminRoutes.getAdmin);
 router.get('/', AdminRoutes.getAllAdmin);
 router.delete('/:id', AdminRoutes.deleteAdmin);
 router.patch('/:id', AdminRoutes.updateAdmin);
+
+module.exports = router;
