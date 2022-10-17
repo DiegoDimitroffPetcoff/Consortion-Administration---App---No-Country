@@ -2,7 +2,7 @@ const AdminSchema = require('../Models/AdminSchema.js');
 const AppError = require('../utils/appError.js');
 const CatchAsync = require('../utils/catchAsync.js');
 const { validatorPassword, comparePass } = require('../utils/compare.js');
-const env = require('../config.js/env-vars.js') 
+const env = require('../config/env-vars.js') 
 
 const jwt = require('jsonwebtoken');
 

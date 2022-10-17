@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const configs = require("../config.js/globals");
+const configs = require("../config/globals.js");
 
 let instance = null;
 

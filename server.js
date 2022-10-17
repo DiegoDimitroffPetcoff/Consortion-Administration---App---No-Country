@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 
 // ---------------------CONFIG GLOBALES cambios-----------------------//
-const configs = require("./src/config.js/globals");
+const configs = require("./src/config/globals.js");
 
 // --------------------------FACTORY--------------------------//
 const Factory = require('./src/Factory.js/factory');
@@ -26,11 +26,11 @@ app.listen(PORT, () => {
 })
 
 //Middlaware
+const adminRoutes = require ('./src/Routes/adminRoutes.js')
 app.use(express.json());
 app.use('/api', adminRoutes)
 
 //ROUTES
-import adminRoutes from './routes/adminRoutes.js'
 
 app.get('/', (req,res) => {
     res.send('Welcome to my API')
