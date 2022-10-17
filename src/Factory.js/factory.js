@@ -17,7 +17,7 @@ class Factory {
   }
   connection(data) {
     if (data == "file") {
-    mongoose.connect(configs.MONGO_URI, {
+    mongoose.connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });
@@ -26,7 +26,7 @@ class Factory {
     } else if (data == "mongo") {
 
       
-      mongoose.connect(configs.MONGO_URI, {
+      mongoose.connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });

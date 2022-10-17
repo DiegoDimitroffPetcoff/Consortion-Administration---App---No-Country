@@ -56,5 +56,5 @@ const getAdmin = CatchAsync(async (req, res, next) => {
     }
   });
 
-  module.exports = getAdmin, getAllAdmin, deleteAdmin, updateAdmin
+  module.exports = {getAdmin, getAllAdmin, deleteAdmin, updateAdmin}
   
