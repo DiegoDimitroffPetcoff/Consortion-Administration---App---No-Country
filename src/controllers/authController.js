@@ -15,7 +15,7 @@ const signToken = (id, rol) => {
 };
 
 const createSendToken = (admin, statusCode, res) => {
-    const token = signToken(admin.id, user.rol);
+    const token = signToken(admin._id);
 
     res.status(statusCode).json({
         status: 'success',
@@ -40,26 +40,30 @@ const login = CatchAsync(async(req, res, next) => {
 
   const signUp = CatchAsync(async (req, res, next) => {
     const { nombre, apellidos, email, password, confirmarPassword } = req.body;
-    const admin = await AdminSchema.findOne({ where: { email } });
+    const admin = await AdminSchema.findOne({ email: email });
+    console.log("ENTREEEEEEE A SINGUP: ", admin)
     if (admin) {
-      return next(new AppError('El usario ya existe', 400));
-    } else if (!comparePass(password, confirmarPassword)) {
+      console.log("CONDICION 1")
+      return next(new AppError('El usario ya existe ', 400));
+  }
+    if (!comparePass(password, confirmarPassword)) {
       return next(new AppError('Las contraseñas no coinciden', 400));
     }
-  
+    
     const newAdmin = await AdminSchema.create({
       nombre,
       apellidos,
       email,
       password,
       confirmarPassword
-      
     });
   
     return createSendToken(newAdmin, 201, res);
-  
   });
-  
+
+  //---------------------------------------
+
+
   const getLogout = CatchAsync((req, res) => {
     res.cookie('token', '', { maxAge: 1 });
     res.redirect('/');

@@ -11,3 +11,4 @@ const comparePass = (a, b) => {
     return false;
 }
 
+module.exports= {validatorPassword, comparePass}
