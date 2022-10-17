@@ -31,4 +31,4 @@ const validatorLoginAdmin = [
   },
 ];
 
-module.exports = validateUpdateAdmin, validatorRegisterAdmin, validatorLoginAdmin
+module.exports = {validateUpdateAdmin, validatorRegisterAdmin, validatorLoginAdmin}

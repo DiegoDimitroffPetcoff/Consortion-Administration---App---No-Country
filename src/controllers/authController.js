@@ -65,4 +65,4 @@ const login = CatchAsync(async(req, res, next) => {
     res.redirect('/');
   });
 
-  module.exports = login, signUp, getLogout
+  module.exports = {login, signUp, getLogout}

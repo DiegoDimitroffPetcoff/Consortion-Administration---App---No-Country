@@ -10,4 +10,3 @@ const comparePass = (a, b) => {
     }
     return false;
 }
-
