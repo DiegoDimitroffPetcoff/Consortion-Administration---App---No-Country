@@ -1,6 +1,5 @@
-require('dotenv').config()
+ require('dotenv').config()
 
-module.exports = {
-    MONGO_URI: process.env.MONGO_URI || "FALTA BASE DE DATOS",
+ module.exports = {
     PORT: process.env.PORT || 8080
-}
+ }

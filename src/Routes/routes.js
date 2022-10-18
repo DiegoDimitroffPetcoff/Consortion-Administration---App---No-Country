@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
-
+const Schema = require("../Models/ModeloPrueba");
 const Controller = require('../controllers.js/mongo/controller')
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./public"));
+
 class Routes {
   constructor() {
   this.Controller = new Controller()}
