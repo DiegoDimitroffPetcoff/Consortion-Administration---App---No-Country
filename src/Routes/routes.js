@@ -11,7 +11,7 @@ class Routes {
   constructor() {
   this.Controller = new Controller()}
   start() {
-    app.get("/prueba", async (req, res) => {
+    app.get("/prueba2", async (req, res) => {
       try {
         let objetoEJEMPLO = await Schema.find({});
         console.log(objetoEJEMPLO);
