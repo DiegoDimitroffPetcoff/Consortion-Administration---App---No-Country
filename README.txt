@@ -20,7 +20,7 @@ Ver sus proximos vencimientos
 Boton de mensajes al Administrador
 
 -------------------------------------------------------------------------------------------------------------
-ACTUALIZACION HECHA 13-10-2022
+ACTUALIZACION HECHA 19-10-2022
 
 Logica de la funcionalidad: 
 
