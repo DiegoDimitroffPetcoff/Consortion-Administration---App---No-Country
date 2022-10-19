@@ -11,11 +11,11 @@ class Routes {
   constructor() {
   this.Controller = new Controller()}
   start() {
-    app.get("/", async (req, res) => {
+    app.get("/prueba", async (req, res) => {
       try {
         let objetoEJEMPLO = await Schema.find({});
         console.log(objetoEJEMPLO);
-        res.send(objetoEJEMPLO);
+        res.json("PRUEBAAAA ACAAA");
       } catch (err) {
         console.log("ERROR");
         console.log(err);
@@ -24,8 +24,6 @@ class Routes {
 
     app.get("/add_torre/:name", this.Controller.add_torre);
     app.get("/getTorres", this.Controller.getTorres);
-
-
     app.post("/add_apartment", this.Controller.add_apartment);
     app.get("/getApartment", this.Controller.getApartments);
 
