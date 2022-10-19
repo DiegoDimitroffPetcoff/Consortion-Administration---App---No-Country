@@ -48,11 +48,10 @@ const login = CatchAsync(async(req, res, next) => {
     const admin = await AdminSchema.findOne({ email: email });
     console.log("ENTREEEEEEE A SINGUP: ", admin)
     if (admin) {
-      console.log("CONDICION 1")
-      return next(new AppError('El usario ya existe ', 400));
-  }
+      return res.status(400).json("Usuario ingresado ya existe!")
+    }
     if (!comparePass(password, confirmarPassword)) {
-      return next(new AppError('Las contraseñas no coinciden', 400));
+      return res.status(400).json("Contraseñas distintas!")
     }
 
     const hashPassword =  await hash(password)
@@ -65,7 +64,7 @@ const login = CatchAsync(async(req, res, next) => {
       confirmarPassword: hashPassword,
     });
 
-    res.json("PROBANDOOOO")
+    
     return createSendToken(newAdmin, 201, res);
   });
 

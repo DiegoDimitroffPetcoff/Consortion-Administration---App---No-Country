@@ -36,7 +36,7 @@ class Apartamento extends Container {
  
       // validacion para cuando ya existen obejtos en DBS, elige el ultimo id
       let id = all.pop().id;
-      console.log(id);
+      console.log("IDDDD QUE BUSCO",id);
       id++;
       // Recupera la torre a la que el departamento creado va a pertenecer
       console.log(content);
