@@ -64,7 +64,8 @@ const login = CatchAsync(async(req, res, next) => {
       password: hashPassword,
       confirmarPassword: hashPassword,
     });
-  
+
+    res.json("PROBANDOOOO")
     return createSendToken(newAdmin, 201, res);
   });
 
