@@ -27,7 +27,7 @@ class Routes {
 
 
     app.post("/add_apartment", this.Controller.add_apartment);
-    app.get("/getApartment", this.Controller.getApartment);
+    app.get("/getApartment", this.Controller.getApartments);
 
     return app;
   }
