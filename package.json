@@ -4,7 +4,7 @@
   "description": "Application to manage a consortium",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "consortion",
