@@ -26,7 +26,20 @@ class Controller {
     }
   }
 
-  
+   
+  async getTorres(req, res) {
+    try {
+      
+ 
+      let newTorre = await DaoTorre.read();
+      console.log(newTorre);
+
+      return res.json(newTorre);
+    } catch (err) {
+      console.log("ERROR");
+      console.log(err);
+    }
+  }
 
   async add_apartment(req, res) {
 
@@ -43,7 +56,18 @@ class Controller {
       console.log(err);
     }
   }
+  
+  async getApartments(req, res) {
+    try {
+      let AllApartments = await DaoDpto.read();
+      console.log(AllApartments);
 
+      return res.json(AllApartments);
+    } catch (err) {
+      console.log("ERROR");
+      console.log(err);
+    }
+  }
 
 }
 

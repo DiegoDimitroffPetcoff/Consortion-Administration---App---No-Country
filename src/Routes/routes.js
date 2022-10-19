@@ -23,7 +23,11 @@ class Routes {
     });
 
     app.get("/add_torre/:name", this.Controller.add_torre);
+    app.get("/getTorres", this.Controller.getTorres);
+
+
     app.post("/add_apartment", this.Controller.add_apartment);
+    app.get("/getApartment", this.Controller.getApartment);
 
     return app;
   }

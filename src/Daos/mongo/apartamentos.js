@@ -59,6 +59,9 @@ class Apartamento extends Container {
       }
     }
   }
+  async read() {
+    return await Schema.find({});
+  }
 }
 
 module.exports = Apartamento;
