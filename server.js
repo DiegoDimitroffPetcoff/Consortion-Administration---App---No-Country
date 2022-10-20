@@ -4,7 +4,9 @@ const app = express()
 const dotenv = require('dotenv').config();
 // ---------------------CONFIG GLOBALES cambios-----------------------//
 const configs = require("./src/config.js/globals");
-
+// --------------------------CORS--------------------------//
+const cors = require('cors')
+app.use(cors())
 // --------------------------FACTORY--------------------------//
 const Factory = require('./src/Factory.js/factory');
 
