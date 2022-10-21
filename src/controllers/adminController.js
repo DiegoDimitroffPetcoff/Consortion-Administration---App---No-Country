@@ -4,16 +4,21 @@ const CatchAsync = require('../utils/catchAsync.js');
 
 
 const getAdmin = CatchAsync(async (req, res, next) => {
-    const { id } = req.params;
-    const admin = await AdminSchema.findByPk(id);
-    if (!id || !admin) {
-      return next(new AppError('No se ha especificado el id o Administrador no encontrado', 400));
+    const { email } = req.body;
+    const admin = await AdminSchema.findOne({email: email});
+
+    console.log("LO ENCUENTROO: ", admin)
+    if (!email) {
+      return next(new AppError('Ingrese el email del admin!', 400));
+    }
+    if(!admin){
+      return next(new AppError('No se ha encontrado el usuario!', 400));
     }
     res.status(200).json(admin);
   });
   
   const getAllAdmin = CatchAsync(async (req, res, next) => {
-    const admins = await AdminSchema.findAll();
+    const admins = await AdminSchema.find();
     if (!admins) {
       return next(new AppError('No se ha encontrado ningun Administrador', 400));
     }
@@ -27,13 +32,17 @@ const getAdmin = CatchAsync(async (req, res, next) => {
   });
   
   const deleteAdmin = CatchAsync(async (req, res, next) => {
-    const { id } = req.params;
-    const admin = await AdminSchema.findByPk(id);
-    if (!admin || !id) {
-      return next(new AppError('No se ha especificado el id o Administrador no encontrado', 400));
+    const { email } = req.body;
+    if (!email) {
+      return next(new AppError('No se ha especificado el email!', 400));
     }
-    await admin.destroy();
-    res.status(204).json({ message: 'Administrador eliminado correctamente' });
+    const admin = await AdminSchema.findOne({email: email});
+    if(!admin){
+      return next(new AppError('No se ha encontrado al usuario!', 400));
+    }
+    console.log("ADMINNN: ", admin)
+    await AdminSchema.deleteOne({admin}).then(res.status(200).send('Administrador eliminado correctamente' ))
+    //return res.status(204).json('Administrador eliminado correctamente' );
   });
   
   const updateAdmin = CatchAsync(async (req, res, next) => {

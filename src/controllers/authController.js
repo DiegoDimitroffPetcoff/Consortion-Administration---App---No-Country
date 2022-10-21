@@ -46,6 +46,7 @@ const login = CatchAsync(async(req, res, next) => {
   const signUp = CatchAsync(async (req, res, next) => {
     const { nombre, apellidos, email, password, confirmarPassword } = req.body;
     const admin = await AdminSchema.findOne({ email: email });
+    
     console.log("ENTREEEEEEE A SINGUP: ", admin)
     if (admin) {
       return res.status(400).json("Usuario ingresado ya existe!")
@@ -71,7 +72,7 @@ const login = CatchAsync(async(req, res, next) => {
   //---------------------------------------
 
 
-  const getLogout = CatchAsync((req, res) => {
+  const getLogout =  CatchAsync(async (req, res) => {
     res.cookie('token', '', { maxAge: 1 });
     res.redirect('/');
   });
