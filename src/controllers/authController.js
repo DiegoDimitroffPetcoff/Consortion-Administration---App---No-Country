@@ -9,14 +9,14 @@ const jwt = require('jsonwebtoken');
 
 
 const signToken = (id, rol) => {
-    return jwt.sign({id, rol }, process.env.JWT_SECRET, {
+    return jwt.sign({id}, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN
     });
 };
 
 const createSendToken = (admin, statusCode, res) => {
     const token = signToken(admin._id);
-
+    res.cookie('token', token, {httpOnly: true, maxAge: 604800000})
     res.status(statusCode).json({
         status: 'success',
         token,
